@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西苑高中網頁設計營隊報名</title>
+    <style>
+        * {
+            font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: linear-gradient(#141e30, #243b55);
+            color: #FFF;
+            min-height: 100dvh;
+        }
+
+        .login-box {
+            max-width: 400px;
+            padding: 40px;
+            background: rgba(0, 0, 0, .5);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+            border-radius: 10px;
+            margin: 2rem auto;
+            animation-name: fadeIn;
+            animation-duration: 1s;
+        }
+
+        .login-box h1 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .login-box .user-box {
+            position: relative;
+        }
+
+        .login-box .user-box input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+            animation-name: fadeIn;
+            animation-duration: 3s;
+        }
+
+        .login-box .user-box label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            pointer-events: none;
+            transition: .5s;
+            animation-name: fadeIn;
+            animation-duration: 2s;
+        }
+
+        .login-box .user-box input:focus~label,
+        .login-box .user-box input:valid~label {
+            top: -20px;
+            left: 0;
+            color: #03e9f4;
+            font-size: 12px;
+        }
+
+        .login-box form a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #03e9f4;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            margin-top: 40px;
+            letter-spacing: 4px
+        }
+
+        .login-box a:hover {
+            background: #03e9f4;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+        }
+
+        .login-box a span {
+            position: absolute;
+            display: block;
+        }
+
+        .login-box a span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #03e9f4);
+            animation: btn-anim1 1s linear infinite;
+        }
+
+        p {
+            color: #FFF;
+        }
+
+        @keyframes btn-anim1 {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 100%;
+            }
+        }
+
+        .login-box a span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #03e9f4);
+            animation: btn-anim2 1s linear infinite;
+            animation-delay: .25s
+        }
+
+        @keyframes btn-anim2 {
+            0% {
+                top: -100%;
+            }
+
+            50%,
+            100% {
+                top: 100%;
+            }
+        }
+
+        .login-box a span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #03e9f4);
+            animation: btn-anim3 1s linear infinite;
+            animation-delay: .5s
+        }
+
+        @keyframes btn-anim3 {
+            0% {
+                right: -100%;
+            }
+
+            50%,
+            100% {
+                right: 100%;
+            }
+        }
+
+        .login-box a span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #03e9f4);
+            animation: btn-anim4 1s linear infinite;
+            animation-delay: .75s
+        }
+
+        @keyframes btn-anim4 {
+            0% {
+                bottom: -100%;
+            }
+
+            50%,
+            100% {
+                bottom: 100%;
+            }
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            /* Firefox */
+        }
+
+        input[type=radio] {
+            display: inline-block;
+        }
+
+        .remind {
+            color: rgba(181, 181, 181, 0.854);
+            font-size: 0.8rem;
+        }
+
+        .remind:nth-child(2) {
+            text-align: center;
+        }
+
+        #send,
+        label {
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="login-box">
+        <h1>西苑高中網頁設計營隊</h1>
+        <p>你是否對網頁原理感到陌生？想要從頭開始學習，掌握最基礎的網頁建置技能嗎？現在有一個絕佳機會！
+            <br><br>
+            我們即將舉辦一個網頁設計營隊，從HTML、CSS、JS到Git深入探索網頁建置的各種技巧和工具。無須任何經驗，只要會從A打到Z就好了。
+            <br><br>
+            對象:西苑高中學生
+            <br>
+            4/8 9:00-17:00 &emsp; 4/9 9:00-15:10 <br>
+            西苑高中圖五電腦教室 <br>
+            費用:免費，提供午餐<br>
+        </p>
+        <form id="myForm">
+            <div class="user-box">
+                <input type="text" id="name">
+                <label>姓名</label>
+            </div>
+            <div class="user-box">
+                <input type="number" id="classes">
+                <label>班級座號 (高一三2號為40302)</label>
+            </div>
+            <div class="user-box">
+                <input type="phone" id="tel" required="">
+                <label>連絡電話</label>
+            </div>
+            <div class="user-box">
+                <input type="email" id="mail" required="">
+                <label>電子郵件</label>
+            </div>
+            <div>性別
+                <label>
+                    <input type="radio" id="gender" name="gender" checked>
+                    男
+                </label>
+                <label>
+                    <input type="radio" name="gender">
+                    女
+                </label>
+            </div>
+
+            <a id="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div id="send">提交</div>
+
+            </a>
+            <p class="remind">請留意電子郵件，我們將會在活動前通知活動詳情。</p>
+        </form>
+    </div>
+    <div class="remind">主辦單位:西苑高中資訊志工教學組(學生團體) <br>
+        指導單位:西苑高中圖書館</div>
+    <script>
+        const form = document.getElementById("myForm");
+        const submitBtn = document.getElementById("submit");
+
+        submitBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            console.log("start");
+            const formData = new FormData(form);
+            const data = {
+                name: document.getElementById("name").value,
+                classes: document.getElementById("classes").value,
+                tel: document.getElementById("tel").value,
+                mail: document.getElementById("mail").value,
+                gender: "女"
+            };
+            if (data.name == "" || data.classes == "" || data.tel == "" || data.mail == "") {
+                alert("請填寫完整資料");
+                return;
+            }
+            if (data.classes.length != 5) {
+                alert("班級座號格式錯誤");
+                return;
+            }
+            if (data.tel.length != 10) {
+                alert("電話格式錯誤");
+                return;
+            }
+            if (data.mail.indexOf("@") == -1) {
+                alert("電子郵件格式錯誤");
+                return;
+            }
+            if (document.getElementById("gender").checked) data.gender = "男"
+            console.log(data);
+            var sendMsg = document.getElementById("send");
+            sendMsg.innerHTML = "提交中";
+            fetch('https://script.google.com/macros/s/AKfycbxSeJxs7Z8CYCPA7kX-mjeNeWj1QSICDQciDKmonnGGmDfdbzAc9Us5I8ODn2rck5bETg/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify(data)
+            })
+                .then(response => sendMsg.innerHTML = "提交成功")
+                .then(data => console.log(data))
+                .catch(error => console.error(error))
+
+        });
+    </script>
+</body>
+</html>
