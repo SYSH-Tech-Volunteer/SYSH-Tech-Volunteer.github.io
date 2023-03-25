@@ -270,15 +270,15 @@
                 <label>姓名</label>
             </div>
             <div class="user-box">
-                <input type="number" id="classes">
+                <input type="number" id="classes" required>
                 <label>班級座號 (校外人士免填)</label>
             </div>
             <div class="user-box">
-                <input type="phone" id="tel" required="">
+                <input type="phone" id="tel" required>
                 <label>連絡電話</label>
             </div>
             <div class="user-box">
-                <input type="email" id="mail" required="">
+                <input type="email" id="mail" required>
                 <label>電子郵件</label>
             </div>
             <div>性別
@@ -320,7 +320,7 @@
                 mail: document.getElementById("mail").value,
                 gender: "女"
             };
-            if (data.name == "" || data.classes == "" || data.tel == "" || data.mail == "") {
+            if (data.name == "" || data.tel == "" || data.mail == "") {
                 alert("請填寫完整資料");
                 return;
             }
