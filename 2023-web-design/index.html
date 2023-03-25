@@ -258,7 +258,7 @@
             <br><br>
             我們即將舉辦一個網頁設計營隊，從HTML、CSS、JS到Git深入探索網頁建置的各種技巧和工具。無須任何經驗，只要會從A打到Z就好了。
             <br><br>
-            對象:所有人
+            對象:西苑高中學生
             <br>
             4/8 9:00-17:00 &emsp; 4/9 9:00-15:10 <br>
             西苑高中圖五電腦教室 <br>
@@ -271,14 +271,14 @@
             </div>
             <div class="user-box">
                 <input type="number" id="classes" required>
-                <label>班級座號 (校外人士免填)</label>
+                <label>班級座號 (高一三2號為40302)</label>
             </div>
             <div class="user-box">
-                <input type="phone" id="tel" required>
+                <input type="phone" id="tel" required="">
                 <label>連絡電話</label>
             </div>
             <div class="user-box">
-                <input type="email" id="mail" required>
+                <input type="email" id="mail" required="">
                 <label>電子郵件</label>
             </div>
             <div>性別
@@ -324,7 +324,6 @@
                 alert("請填寫完整資料");
                 return;
             }
-            
             if (data.tel.length != 10) {
                 alert("電話格式錯誤");
                 return;
@@ -344,7 +343,7 @@
             })
                 .then(response => sendMsg.innerHTML = "提交成功")
                 .then(data => console.log(data))
-                .catch(error => console.error(error))
+                .catch(error => "已提交")
 
         });
     </script>
