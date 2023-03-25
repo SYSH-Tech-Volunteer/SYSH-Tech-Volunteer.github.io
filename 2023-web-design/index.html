@@ -320,8 +320,12 @@
                 mail: document.getElementById("mail").value,
                 gender: "女"
             };
-            if (data.name == "" || data.tel == "" || data.mail == "") {
+            if (data.name == "" || data.classes == "" || data.tel == "" || data.mail == "") {
                 alert("請填寫完整資料");
+                return;
+            }
+            if (data.classes.length != 5) {
+                alert("班級座號格式錯誤");
                 return;
             }
             if (data.tel.length != 10) {
@@ -343,7 +347,7 @@
             })
                 .then(response => sendMsg.innerHTML = "提交成功")
                 .then(data => console.log(data))
-                .catch(error => "已提交")
+                .catch(error =>sendMsg.innerHTML = "已提交")
 
         });
     </script>
