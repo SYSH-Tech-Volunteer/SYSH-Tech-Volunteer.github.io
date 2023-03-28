@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -250,8 +251,6 @@
 </head>
 
 <body>
-
-
     <div class="login-box">
         <h1>西苑高中網頁設計營隊</h1>
         <p>你是否對網頁原理感到陌生？想要從頭開始學習，掌握最基礎的網頁建置技能嗎？現在有一個絕佳機會！
@@ -271,7 +270,7 @@
             </div>
             <div class="user-box">
                 <input type="number" id="classes" required>
-                <label>班級座號 (高一三2號為40302)</label>
+                <label>班級座號 (選填)</label>
             </div>
             <div class="user-box">
                 <input type="phone" id="tel" required="">
@@ -291,7 +290,10 @@
                     女
                 </label>
             </div>
-
+            <div>
+                <input type="checkbox" id="online">
+                <label>無法到場，參與線上活動</label>
+            </div>
             <a id="submit">
                 <span></span>
                 <span></span>
@@ -318,14 +320,11 @@
                 classes: document.getElementById("classes").value,
                 tel: document.getElementById("tel").value,
                 mail: document.getElementById("mail").value,
+                online: document.getElementById("online").value,
                 gender: "女"
             };
-            if (data.name == "" || data.classes == "" || data.tel == "" || data.mail == "") {
+            if (data.name == "" || data.tel == "" || data.mail == "") {
                 alert("請填寫完整資料");
-                return;
-            }
-            if (data.classes.length != 5) {
-                alert("班級座號格式錯誤");
                 return;
             }
             if (data.tel.length != 10) {
@@ -347,7 +346,7 @@
             })
                 .then(response => sendMsg.innerHTML = "提交成功")
                 .then(data => console.log(data))
-                .catch(error =>sendMsg.innerHTML = "已提交")
+                .catch(error => sendMsg.innerHTML = "已提交")
 
         });
     </script>
