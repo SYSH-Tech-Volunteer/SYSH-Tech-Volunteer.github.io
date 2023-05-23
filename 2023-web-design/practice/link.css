@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    background-color: #9FC088;
+    font-family: 'Noto Sans TC', serif;
+}
+
+#avatar {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    background-image: url(https://cdn.britannica.com/07/183407-050-C35648B5/Chicken.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+
+a {
+    display: block;
+    width: 80%;
+    background-color: #E8C07D;
+    margin: 10px auto;
+    padding: 1em;
+    color: #614124;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #614124;
+    border: #CC704B solid 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width .3s, font-size .3s;
+
+}
+
+a:active {
+    background-color: rgb(152, 127, 94);
+}
+
+a:hover {
+    width: 90%;
+    font-size: 2em;
+
+}
