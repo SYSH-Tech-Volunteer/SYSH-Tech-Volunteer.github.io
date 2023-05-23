@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYTHON爬蟲營隊 | 西苑資訊志工隊</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+            font-weight: 400;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+
+        main {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            letter-spacing: 0.05rem;
+
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        form {
+            margin: 1rem 0;
+            border: 3px solid #fff;
+            padding: 1rem;
+        }
+
+        .input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .label {
+            margin-right: 1rem;
+        }
+
+        .input label,
+        .input input {
+            height: 2rem;
+            display: block;
+        }
+
+        .input input {
+            height: 1.5rem;
+            margin: .5rem 0;
+        }
+
+        .remind {
+            font-size: .9rem;
+            margin-top: 1rem;
+        }
+
+        input[type="submit"] {
+            background-color: #000;
+            color: #FFF;
+            border: 1px solid #FFF;
+            padding: .5rem 1rem;
+            cursor: pointer;
+            margin: 1rem;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2f2f2f;
+        }
+
+        input[type="submit"]:active {
+            background-color: #3a3a3a;
+        }
+
+        .sub {
+            text-align: right;
+        }
+
+        /* if width<350 make text smaller */
+        @media screen and (max-width: 350px) {
+            main {
+                font-size: 1rem;
+            }
+        }
+
+        .input input {
+            background-color: #000;
+            color: #FFF;
+            border: 1px solid #FFF;
+            width: auto;
+            max-width: 10em;
+            padding: .5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="login-box">
+            <h1>PYTHON爬蟲營隊</h1>
+            <p>
+                對象: 龍津高中學生
+                <br>
+                時間: 2023/7/4 08:00 - 15:00<br>
+                費用:免費，提供午餐及證書<br>
+            </p>
+            <form id="myForm">
+                <div class="input">
+                    <div class="label"><label>姓名</label><label>班級座號</label> <label>連絡電話</label> <label>電子郵件</label>
+                    </div>
+                    <div>
+                        <input type="text" id="name" required>
+                        <input type="number" id="classes" required>
+                        <input type="phone" id="tel" required="">
+                        <input type="email" id="mail" required="">
+                    </div>
+                </div>
+                <div>性別
+                    <label>
+                        <input type="radio" id="gender" name="gender">
+                        男
+                    </label>
+                    <label>
+                        <input type="radio" name="gender">
+                        女
+                    </label>
+                </div>
+                <!-- submit -->
+                <div class="sub"> <input type="submit" value="送出">
+                </div>
+                <p class="remind">請留意電子郵件，我們將會在活動前通知活動詳情。</p>
+
+            </form>
+        </div>
+        <div class="remind">主辦單位:西苑高中資訊志工(學生團體) <br>
+            指導單位:西苑高中圖書館</div>
+    </main>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var formData = new FormData(event.target);
+            var g = (document.getElementById("gender").checked) ? "男" : "女";
+            var url = `https://script.google.com/macros/s/AKfycbzSvvmIVNyH8W1zHphNPxff3iVyThF1j1uNJwRqQG8XnPmtv9kJTZJzvSEXsX3GVw0Xsw/exec?name=${document.getElementById("name").value}&classes=${document.getElementById("classes").value}&tel=${document.getElementById("tel").value}&mail=${document.getElementById("mail").value}&gender=${g}`;
+            // Send the GET request
+            fetch(url)
+                .then(function (response) {
+                    alert("報名成功");
+                })
+                .catch(function (error) {
+                    alert("報名失敗");
+                });
+        });
+
+    </script>
+</body>
+
+</html>
