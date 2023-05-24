@@ -99,10 +99,19 @@
             max-width: 10em;
             padding: .5rem;
         }
+
+        img {
+            position: absolute;
+            right: 10%;
+            top: 0;
+            z-index: -1;
+            opacity: .4;
+        }
     </style>
 </head>
 
 <body>
+    <img src="spider.svg" alt="">
     <main>
         <div class="login-box">
             <h1>PYTHON爬蟲營隊</h1>
@@ -123,7 +132,7 @@
                         <input type="email" id="mail" required="">
                     </div>
                 </div>
-                <div>性別
+                <div>性別&nbsp;
                     <label>
                         <input type="radio" id="gender" name="gender">
                         男
@@ -131,6 +140,16 @@
                     <label>
                         <input type="radio" name="gender">
                         女
+                    </label>
+                </div>
+                <div>午餐&nbsp;
+                    <label>
+                        <input type="radio" id="food" name="food" checked>
+                        葷
+                    </label>
+                    <label>
+                        <input type="radio" name="food">
+                        素
                     </label>
                 </div>
                 <!-- submit -->
@@ -148,8 +167,8 @@
             event.preventDefault();
             var formData = new FormData(event.target);
             var g = (document.getElementById("gender").checked) ? "男" : "女";
-            var url = `https://script.google.com/macros/s/AKfycbzSvvmIVNyH8W1zHphNPxff3iVyThF1j1uNJwRqQG8XnPmtv9kJTZJzvSEXsX3GVw0Xsw/exec?name=${document.getElementById("name").value}&classes=${document.getElementById("classes").value}&tel=${document.getElementById("tel").value}&mail=${document.getElementById("mail").value}&gender=${g}`;
-            // Send the GET request
+            var f = (document.getElementById("food").checked) ? "葷" : "素";
+            var url = `https://script.google.com/macros/s/AKfycbzSvvmIVNyH8W1zHphNPxff3iVyThF1j1uNJwRqQG8XnPmtv9kJTZJzvSEXsX3GVw0Xsw/exec?name=${document.getElementById("name").value}&classes=${document.getElementById("classes").value}&tel=${document.getElementById("tel").value}&mail=${document.getElementById("mail").value}&gender=${g}&food=${f}`;
             fetch(url)
                 .then(function (response) {
                     alert("報名成功");
