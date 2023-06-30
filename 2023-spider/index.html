@@ -107,6 +107,12 @@
             z-index: -1;
             opacity: .4;
         }
+        .ed{
+            color:red;
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: rgba(255, 197, 207, 0.993);
+        }
     </style>
 </head>
 
@@ -116,20 +122,22 @@
         <div class="login-box">
             <h1>PYTHON爬蟲營隊</h1>
             <p>
+        
                 對象: 龍津高中學生<br>
                 無須任何程式經驗<br>
                 時間: 2023/7/4 09:00 - 15:00<br>
-                費用:免費，提供午餐及證書<br>
+                費用:免費，提供午餐及證書
+                <div class="ed">活動報名已截止，謝謝您的參與 (:</div>
             </p>
             <form id="myForm">
                 <div class="input">
                     <div class="label"><label>姓名</label><label>班級座號</label> <label>連絡電話</label> <label>電子郵件</label>
                     </div>
                     <div>
-                        <input type="text" id="name" required>
-                        <input type="number" id="classes" required>
-                        <input type="phone" id="tel" required="">
-                        <input type="email" id="mail" required="">
+                        <input type="text" id="name" disabled>
+                        <input type="number" id="classes" disabled>
+                        <input type="phone" id="tel" disabled="">
+                        <input type="email" id="mail" disabled="">
                     </div>
                 </div>
                 <div>性別&nbsp;
@@ -164,18 +172,19 @@
     </main>
     <script>
         document.getElementById("myForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            var formData = new FormData(event.target);
-            var g = (document.getElementById("gender").checked) ? "男" : "女";
-            var f = (document.getElementById("food").checked) ? "葷" : "素";
-            var url = `https://script.google.com/macros/s/AKfycbzSvvmIVNyH8W1zHphNPxff3iVyThF1j1uNJwRqQG8XnPmtv9kJTZJzvSEXsX3GVw0Xsw/exec?name=${document.getElementById("name").value}&classes=${document.getElementById("classes").value}&tel=${document.getElementById("tel").value}&mail=${document.getElementById("mail").value}&gender=${g}&food=${f}`;
-            fetch(url)
-                .then(function (response) {
-                    alert("報名成功");
-                })
-                .catch(function (error) {
-                    alert("報名失敗");
-                });
+            // event.preventDefault();
+            // var formData = new FormData(event.target);
+            // var g = (document.getElementById("gender").checked) ? "男" : "女";
+            // var f = (document.getElementById("food").checked) ? "葷" : "素";
+            // var url = `https://script.google.com/macros/s/AKfycbzSvvmIVNyH8W1zHphNPxff3iVyThF1j1uNJwRqQG8XnPmtv9kJTZJzvSEXsX3GVw0Xsw/exec?name=${document.getElementById("name").value}&classes=${document.getElementById("classes").value}&tel=${document.getElementById("tel").value}&mail=${document.getElementById("mail").value}&gender=${g}&food=${f}`;
+            // fetch(url)
+            //     .then(function (response) {
+            //         alert("報名成功");
+            //     })
+            //     .catch(function (error) {
+            //         alert("報名失敗");
+            //     });
+            alert("活動報名已截止，謝謝您的參與。")
         });
 
     </script>
