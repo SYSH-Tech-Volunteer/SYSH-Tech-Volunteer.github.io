@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYTHON爬蟲營隊 | 西苑資訊志工隊</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+            font-weight: 400;
+        }
+
+        body {
+            background-color: #474747;
+            color: #fff;
+        }
+
+        main {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            letter-spacing: 0.05rem;
+
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        form {
+            margin: 1rem 0;
+            border: 3px solid #fff;
+            padding: 1rem;
+        }
+
+        .input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .label {
+            margin-right: 1rem;
+        }
+
+        .input label,
+        .input input {
+            height: 2rem;
+            display: block;
+        }
+
+        .input input {
+            height: 1.5rem;
+            margin: .5rem 0;
+        }
+
+        .remind {
+            font-size: .9rem;
+            margin-top: 1rem;
+        }
+
+        input[type="submit"] {
+            background-color: #474747;
+            color: #FFF;
+            border: 1px solid #FFF;
+            padding: .5rem 1rem;
+            cursor: pointer;
+            margin: 1rem;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2f2f2f;
+        }
+
+        input[type="submit"]:active {
+            background-color: #3a3a3a;
+        }
+
+        .sub {
+            text-align: right;
+        }
+
+        /* if width<350 make text smaller */
+        @media screen and (max-width: 350px) {
+            main {
+                font-size: 1rem;
+            }
+        }
+
+        input,
+        textarea {
+            background-color: #474747;
+            color: #FFF;
+            border: 1px solid #FFF;
+            width: auto;
+            max-width: 10em;
+            padding: .5rem;
+        }
+
+        img {
+            position: absolute;
+            right: 10%;
+            top: 0;
+            z-index: -1;
+            opacity: .4;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="spider.svg" alt="">
+    <main>
+        <div class="login-box">
+            <h1>PYTHON爬蟲營隊回饋</h1>
+            <p>
+            <div class="ed">感謝您參加本次活動，請填寫以下資料以供我們日後改善活動品質。</div>
+
+        </div>
+        </p>
+        <form id="myForm">
+            <label>姓名 </label> <input type="text" id="name"><br>
+            <br>請為我們進行評分(1~10分):
+            <div class="input">
+                <div class="label">
+                    <label>課程豐富程度</label>
+                    <label>課程難易度</label>
+                    <label>講師講的好嗎?</label>
+                    <label>午餐好吃嗎?</label>
+                    <label>之後想學甚麼?</label>
+                </div>
+                <div>
+                    <input type="number" id="richness" min="1" max="10">
+                    <input type="number" id="difficulty" min="1" max="10">
+                    <input type="number" id="teacher" min="1" max="10">
+                    <input type="number" id="lunch" min="1" max="10">
+                    <input type="text" id="future">
+                </div>
+            </div>
+
+            <div>之後是否想參加類似活動?&nbsp;
+                <label>
+                    <input type="radio" id="next" name="next" checked>
+                    是
+                </label>
+                <label>
+                    <input type="radio" name="next">
+                    否
+                </label>
+            </div><br>
+            意見與心得:<br>
+            <textarea name="comment" id="comment" cols="30" rows="5"></textarea><br>
+            <!-- submit -->
+            <div class="sub"> <input type="submit" value="送出" id="submit">
+            </div>
+            <p class="remind">歡迎加入Discord社群一起討論並獲取我們最新的活動資訊!</p>
+
+        </form>
+        </div>
+        <div class="remind">主辦單位:西苑高中資訊志工(學生團體) <br>
+            指導單位:西苑高中圖書館</div>
+    </main>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            document.getElementById("submit").disabled = true;
+            document.getElementById("submit").value = "送出中...";
+            var url = `https://script.google.com/macros/s/AKfycbzSvvmIVNyH8W1zHphNPxff3iVyThF1j1uNJwRqQG8XnPmtv9kJTZJzvSEXsX3GVw0Xsw/exec?name=${document.getElementById("name").value}&classes=${document.getElementById("richness").value}&tel=${document.getElementById("difficulty").value}&mail=${document.getElementById("teacher").value}&gender=${document.getElementById("lunch").value}&food=建議: ${document.getElementById("future").value} 留言: ${document.getElementById("comment").value} 再來: ${document.getElementById("next").checked}`;
+            console.log(url);
+            fetch(url)
+                .then(function (response) {
+                    alert("成功!");
+                    document.getElementById("submit").value = "送出";
+                    document.getElementById("submit").disabled = false;
+                })
+                .catch(function (error) {
+                    alert("失敗");
+                    document.getElementById("submit").disabled = false;
+                });
+        });
+
+        
+    </script>
+</body>
+
+</html>
