@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>線上報到</title>
+    <style>
+        :root {
+            --background-rgb: 29 30 34;
+            --blue-rgb: 33 150 243;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(var(--background-rgb));
+            font-family: '微軟正黑體', sans-serif;
+            color: #FFF;
+            font-size: 2rem;
+        }
+
+        main {
+            margin: 2rem auto;
+            display: flex;
+            border: 3px solid rgb(var(--blue-rgb) / 80%);
+            border-radius: 1rem;
+            background-color: rgba(118, 182, 234, 0.463);
+            /* 15 */
+            box-shadow: dodgerblue 0 0 1rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 4rem);
+            gap: 1rem;
+            max-width: min(300px, 90%);
+            transition: all 1s ease;
+        }
+        main.sending {
+            transform: perspective(250px) rotateX(45deg);
+        }
+        main.sent{
+            transform: perspective(250px) rotateX(45deg) translateY(-100vh);
+        }
+
+        .screen-overlay {
+            background: linear-gradient(rgb(var(--blue-rgb) / 0.15), rgb(var(--blue-rgb) / 0.15) 2px, transparent 2px, transparent 6px);
+            background-size: 100% 6px;
+            height: 100%;
+            width: 100%;
+            animation: pan-overlay 22s infinite linear;
+            position: absolute;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+            pointer-events: none;
+        }
+
+        @keyframes pan-overlay {
+            from {
+                background-position: 0% 0%;
+            }
+
+            to {
+                background-position: 0% -100%;
+            }
+        }
+
+        input,
+        button {
+            border: 2px solid rgb(var(--blue-rgb) / 80%);
+            padding: .5rem;
+            background-color: rgb(var(--blue-rgb) / 35%);
+            color: #FFF;
+            text-align: center;
+            transition: all .3s ease-out;
+        }
+
+        input {
+            background: repeating-linear-gradient(45deg,
+                    #be2725,
+                    #be2725 8px,
+                    transparent 8px,
+                    transparent 10px);
+            border: none;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        button:hover {
+            outline: transparent;
+            border: 2px solid rgb(var(--blue-rgb) / 100%);
+            box-shadow: dodgerblue 0 0 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="sending">
+        <div class="screen-overlay"></div>
+        <h1>Save Data in Cookie</h1>
+        <input type="text" id="dataInput" placeholder="Enter some data">
+        <button onclick="saveDataInCookie()" id="submit">已來臨</button>
+    </main>
+
+    <script>
+        const input = document.getElementById("dataInput");
+        function saveDataInCookie() {
+            event.preventDefault();
+            var expiryDate = new Date();
+            expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+            document.cookie = `userData=${encodeURIComponent(input.value)}; expires=${expiryDate.toUTCString()};SameSite=None;Secure;`;
+
+            var submit = document.getElementById("submit");
+            submit.disabled = true;
+            submit.innerHTML = "紀錄中...";
+            submit.style.backgroundColor = "#4B70E2";
+            const url = `https://script.google.com/macros/s/AKfycbwZK-Ode5UnYWrfCn9bRi31-D64GgixunrFEDKEdvlu3sKANGeDfgnIFhtdeloeaDyQkw/exec?form=簽到&data=["${q}","${input.value}"]`;
+            fetch(url)
+                .then(function (response) {
+                    submit.innerHTML = "收到啦！";
+                    submit.style.backgroundColor = "#5be23f";
+                    submit.disabled = false;
+                })
+                .catch(function (error) {
+                    submit.innerHTML = "我沒有get到，請再試一次";
+                    submit.disabled = false;
+                });
+        }
+
+        function checkForCookie() {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.startsWith("userData=")) {
+                    var userData = decodeURIComponent(cookie.substring("userData=".length));
+                    input.value = userData;
+                    break;
+                }
+            }
+        }
+
+        // Check for the cookie when the page loads
+        checkForCookie();
+        //read property q from url and display
+        const urlParams = new URLSearchParams(window.location.search);
+        const q = urlParams.get('q');
+        if (q) {
+            document.querySelector("h1").innerText = q;
+        } else {
+            document.querySelector("h1").innerText = "簽到";
+        }
+    </script>
+    </script>
+
+</body>
+
+</html>

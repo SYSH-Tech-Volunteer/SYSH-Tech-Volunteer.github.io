@@ -28,12 +28,18 @@
             box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
             border-radius: 12px;
             overflow: hidden;
+            transition: all 0.5s ease;
         }
 
         main>* {
             z-index: 2;
             position: relative;
             color: #6b6f70;
+        }
+
+        .sending {
+            transform: rotateX(45deg);
+            transform-origin: 50% 50%;
         }
 
         .circle {
@@ -160,7 +166,7 @@
 </head>
 
 <body>
-    <main>
+    <main class="sending">
         <div class="circle"></div>
         <div class="circle c2"></div>
         <h1>歡迎加入西苑資訊志工隊!</h1>
@@ -216,7 +222,7 @@
             const classNo = document.getElementById("classNo").value;
             const skills = [1, 2, 3, 4, 5].map(id => document.getElementById(`skill${id}`).checked);
             const wish = document.getElementById("wish").value;
-            const url = `https://script.google.com/macros/s/AKfycbwZK-Ode5UnYWrfCn9bRi31-D64GgixunrFEDKEdvlu3sKANGeDfgnIFhtdeloeaDyQkw/exec?form=2&data=["${name}",${classNo},${skills},"${wish}"]`; console.log(url);
+            const url = `https://script.google.com/macros/s/AKfycbwZK-Ode5UnYWrfCn9bRi31-D64GgixunrFEDKEdvlu3sKANGeDfgnIFhtdeloeaDyQkw/exec?form=2023-join&data=["${name}",${classNo},${skills},"${wish}"]`; console.log(url);
             fetch(url)
                 .then(function (response) {
                     submit.innerHTML = "收到啦！";
