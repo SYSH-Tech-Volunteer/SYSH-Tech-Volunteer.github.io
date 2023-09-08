@@ -24,10 +24,13 @@
             position: relative;
             height: 100vh;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
         }
 
         main {
-            margin: 2rem auto;
             display: flex;
             border: 3px solid rgb(var(--blue-rgb) / 80%);
             border-radius: 1rem;
@@ -41,7 +44,7 @@
             justify-content: center;
             height: min(calc(100vh - 4rem),533.333333333333px);
             gap: 1rem;
-            max-width: min(300px, 90%);
+            width: min(300px, 90vw);
             transition: all 1s ease;
         }
 
