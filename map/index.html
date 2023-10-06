@@ -78,14 +78,13 @@
             position: relative;
             display: inline-block;
             padding: 1em;
-            margin: 2em 0;
+            margin: 2em;
             color: #03e9f4;
             text-decoration: none;
             text-transform: uppercase;
             transition: 0.5s;
             letter-spacing: 4px;
             overflow: hidden;
-            margin-left: 50px;
             font-size: 1rem;
             background: transparent;
             outline: transparent;
@@ -199,6 +198,12 @@
                 bottom: 100%;
             }
         }
+        @media (max-width: 600px) {
+            img{
+                width: 100%;
+            }
+            
+        }
     </style>
 </head>
 
@@ -271,27 +276,18 @@
         2023 西苑資訊志工隊<br>毛哥EM繪製
     </footer>
     <script>
-        async function dl(
-            imageSrc
-        ) {
+        async function dl(imageSrc) {
             const response = await fetch('https://raw.githubusercontent.com/SYSH-Tech-Volunteer/map/main/' + imageSrc);
-
             const blobImage = await response.blob();
-
             const href = URL.createObjectURL(blobImage);
-
             const anchorElement = document.createElement('a');
             anchorElement.href = href;
             anchorElement.download = imageSrc;
-
             document.body.appendChild(anchorElement);
             anchorElement.click();
-
             document.body.removeChild(anchorElement);
             window.URL.revokeObjectURL(href);
         }
-
-
     </script>
 </body>
 
