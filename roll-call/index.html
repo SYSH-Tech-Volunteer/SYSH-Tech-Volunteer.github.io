@@ -180,7 +180,7 @@
             submit.disabled = true;
             document.querySelector("h1").innerText = "傳送中...";
             main.classList.add("sending");
-            const url = `https://script.google.com/macros/s/AKfycbwZK-Ode5UnYWrfCn9bRi31-D64GgixunrFEDKEdvlu3sKANGeDfgnIFhtdeloeaDyQkw/exec?form=簽到&data=["${q}","${input.value}"]`;
+            const url = `https://script.google.com/macros/s/AKfycbwZK-Ode5UnYWrfCn9bRi31-D64GgixunrFEDKEdvlu3sKANGeDfgnIFhtdeloeaDyQkw/exec?form=簽到&data=["${input.value}","${q}"]`;
             fetch(url)
                 .then(function (response) {
                     main.classList.add("sent");
