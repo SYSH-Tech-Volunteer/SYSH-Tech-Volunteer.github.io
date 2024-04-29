@@ -101,7 +101,9 @@ theme: miccall
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: 
+    github: git@github.com:SYSH-Tech-Volunteer/SYSH-Tech-Volunteer.github.io.git
 
 # Theme
 # ---------------------------------------------------------------
