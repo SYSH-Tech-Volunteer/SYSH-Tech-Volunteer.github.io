@@ -146,7 +146,7 @@ Nav:
         #   link：“路径”
 
 MainFirst:
-    name: 西苑高中資訊志工隊
+    name: 關於我們
     description: 西苑高中資訊志工隊是西苑高中的資訊志工隊。<br>我們會協助學校進行數位解決方案，以及辦理資訊相關營隊。
     pic_url: /img/logo.png
     goto_ulr: "https://github.com/SYSH-Tech-Volunteer"

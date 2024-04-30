@@ -7,7 +7,7 @@
 head:
     favicon: "/img/logo.png"
     keywords: SYTV, 西苑高中, 資訊志工隊, 西苑高中資訊志工隊, SYSH Tech Volunteer
-    backgroundpic : "img/dark.jpg"
+    backgroundpic : "img/team.jpg"
 
 Intro:
     name: SYTV
@@ -40,9 +40,9 @@ Nav:
         #   link：“路径”
 
 MainFirst:
-    name: 西苑高中資訊志工隊
-    description: 西苑高中資訊志工隊是西苑高中的資訊志工隊。<br>我們會協助學校進行數位解決方案，以及辦理資訊相關營隊。
-    pic_url: /img/logo.png
+    name: 關於我們
+    description: 西苑高中資訊志工隊是西苑高中的資訊志工隊。<br>我們會協助學校處理資訊相關問題，以及辦理資訊主題營隊。
+    pic_url: /img/team.jpg
     goto_ulr: "https://github.com/SYSH-Tech-Volunteer"
 
 Gallery :
@@ -59,7 +59,7 @@ Gallery :
 prism: coy
 
 # Custom Fonts
-fonts: FZLTCXHJW, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "FZLTCXHJW", Arial, sans-serif
+fonts: "Noto Sans TC", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "FZLTCXHJW", Arial, sans-serif
 
 # Comment Systems
 # Available value of "use":
