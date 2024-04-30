@@ -58,9 +58,6 @@ Gallery :
 # link to review : http://prismjs.com/index.html   官网预览
 prism: coy
 
-# Custom Fonts
-fonts: "Noto Sans TC", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "FZLTCXHJW", Arial, sans-serif
-
 # Comment Systems
 # Available value of "use":
 #     duoshuo | disqus | disqus_click | changyan
