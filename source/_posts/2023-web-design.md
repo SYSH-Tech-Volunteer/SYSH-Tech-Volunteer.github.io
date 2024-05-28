@@ -1,9 +1,13 @@
 ---
 title: 2023西苑網頁設計營隊
-date: 2017/3/27 13:48:25  # 文章发表时间
+date: 2023/4/9 - 2023/4/10 
 tags:
-- 龍津高中
+- 西苑高中
 - 高中
+- 網頁設計
+- HTML
+- CSS
+- JavaScript
 categories: 活動 # 分类
 thumbnail: /img/2023-web-design.jpg
 ---

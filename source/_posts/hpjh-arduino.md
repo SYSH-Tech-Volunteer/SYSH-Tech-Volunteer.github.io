@@ -4,6 +4,11 @@ date: 2017/3/27 13:48:25  # 文章发表时间
 tags:
 - 和平國中
 - 國中
+- Arduino
+- 遊戲
+- 小恐龍遊戲
+- AirHockey
+- 疊鬆餅
 categories: 活動 # 分类
 thumbnail: /img/team.jpg # 略缩图
 ---
